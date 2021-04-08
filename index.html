@@ -28,18 +28,19 @@
             <div class="ui header">
               <i class="icon play circle orange"></i>In Progress Tasks ({{ todoTasks.length }})
             </div>
-            <div v-for="task in todoTasks">
-             ID: {{ task.id }} {{ task.name }}: {{ task.description }} completed?: {{ task.completed }}
-            </div>
+            <!-- dataflow: data -> #app -> component -> template -->
+            <task
+              :task="task"
+              v-for="task in todoTasks" />
           </div>
           
           <div id="completed" class="tasklist">
             <div class="ui header">
               <i class="icon check circle green"></i>Completed Tasks ({{ completedTasks.length }})
             </div>
-            <div v-for="task in completedTasks">
-              ID: {{ task.id }} {{ task.name }}: {{ task.description }} completed?: {{ task.completed }}
-            </div>
+            <task
+              :task="task"
+              v-for="task in completedTasks" />
           </div>
 
         </div>
